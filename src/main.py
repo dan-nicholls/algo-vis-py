@@ -2,6 +2,12 @@ import pygame
 import sys
 from settings import Settings
 from visualiser.draw import setup_screen, draw_bars
+import random
+
+
+def generate_initial_values(size, min_value=1, max_value=100):
+    """Generates a list of random integers for the data set."""
+    return [random.randint(min_value, max_value) for _ in range(size)]
 
 
 def main():
@@ -17,6 +23,7 @@ def main():
     # values = [4] * 100
     # values = [1, 3, 5]
     # values = [1, 3, 5, 50, 76, 100]
+    values = generate_initial_values(10)
 
     setup_screen(screen, settings)
 
