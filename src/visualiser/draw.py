@@ -39,3 +39,11 @@ def draw_bars(screen, data, settings, highlight_indexes=None):
         pygame.draw.rect(screen, color, (x, y, bar_width, height))
 
     draw_static_elements(screen, settings)
+
+
+def draw_step_count(screen, step_count, settings):
+    font = pygame.font.SysFont(settings.font_family, 24)
+    text = font.render(f"Steps: {step_count}", True, "black")
+    text_rect = text.get_rect()
+    text_rect.topleft = (10, 10)
+    screen.blit(text, text_rect)
