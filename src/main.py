@@ -1,5 +1,6 @@
 import pygame
 import sys
+from algorithms.bubble_sort import BubbleSort
 from settings import Settings
 from visualiser.draw import setup_screen, draw_bars
 import random
@@ -18,12 +19,16 @@ def main():
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
     pygame.display.set_caption("Algorithm Visualiser")
 
-    # Check algorithm from user
+    # Initialise data values
     values = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
     # values = [4] * 100
-    # values = [1, 3, 5]
+    values = [5, 1, 3]
     # values = [1, 3, 5, 50, 76, 100]
-    values = generate_initial_values(10)
+    values = generate_initial_values(100)
+
+    # Initialise algorithm
+    algorithm = BubbleSort(values)
+    algorithm.initialise()
 
     setup_screen(screen, settings)
 
@@ -36,7 +41,15 @@ def main():
                 if event.key == pygame.K_ESCAPE:
                     running = False
 
-        draw_bars(screen, values, settings)
+        if not algorithm.is_sorted():
+            algorithm.step()
+
+        highlight_indexes = (
+            [algorithm.j, algorithm.j + 1]
+            if algorithm.j < algorithm.n - 1 - algorithm.i
+            else []
+        )
+        draw_bars(screen, algorithm.data, settings, highlight_indexes)
         pygame.display.flip()
         pygame.time.Clock().tick(settings.frame_rate)
 
