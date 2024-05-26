@@ -38,6 +38,7 @@ def main():
 
         draw_bars(screen, values, settings)
         pygame.display.flip()
+        pygame.time.Clock().tick(settings.frame_rate)
 
     pygame.quit()
     sys.exit()
