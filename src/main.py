@@ -21,10 +21,6 @@ def main():
     pygame.display.set_caption("Algorithm Visualiser")
 
     # Initialise data values
-    # values = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
-    # values = [4] * 100
-    # values = [5, 1, 3]
-    # values = [1, 3, 5, 50, 76, 100]
     values = generate_initial_values(30)
 
     # Initialise algorithm
