@@ -23,7 +23,7 @@ def draw_bars(screen, data, settings, highlight_indexes=None):
     max_value = max(data)
     scale_factor = (settings.screen_height - 100) / max_value
 
-    highlight_indexes = highlight_indexes or []
+    highlight_indexes = highlight_indexes or {}
 
     # Draw individual bars
     for i, value in enumerate(data):
@@ -31,11 +31,7 @@ def draw_bars(screen, data, settings, highlight_indexes=None):
         y = settings.screen_height - (value * scale_factor)
         height = value * scale_factor
 
-        color = (
-            settings.bar_highlight_color
-            if i in highlight_indexes
-            else settings.bar_color
-        )
+        color = highlight_indexes.get(i, settings.bar_color)
         pygame.draw.rect(screen, color, (x, y, bar_width, height))
 
     draw_static_elements(screen, settings)
