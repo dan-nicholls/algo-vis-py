@@ -3,7 +3,7 @@
 ## Todos:
 
 - [ ] Sorting Algorithms
-  - [ ] Insertion Sort
+  - [x] Insertion Sort
   - [ ] Merge Sort
   - [ ] Quick Sort
   - [ ] Heap Sort
