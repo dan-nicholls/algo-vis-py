@@ -2,6 +2,7 @@ import pygame
 import sys
 from algorithms.bubble_sort import BubbleSort
 from algorithms.selection_sort import SelectionSort
+from algorithms.insertion_sort import InsertionSort
 from settings import Settings
 from visualiser.draw import draw_step_count, setup_screen, draw_bars
 import random
@@ -25,7 +26,8 @@ def main():
 
     # Initialise algorithm
     # algorithm = BubbleSort(values)
-    algorithm = SelectionSort(values)
+    # algorithm = SelectionSort(values)
+    algorithm = InsertionSort(values)
     algorithm.initialise()
 
     setup_screen(screen, settings)
