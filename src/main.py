@@ -16,7 +16,10 @@ def main():
 
     settings = Settings()
 
-    screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
+    screen = pygame.display.set_mode(
+        (settings.screen_width, settings.screen_height),
+        flags=pygame.DOUBLEBUF,
+    )
     pygame.display.set_caption("Algorithm Visualiser")
 
     # Initialise data values
