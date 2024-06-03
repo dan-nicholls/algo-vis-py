@@ -23,7 +23,7 @@ def main():
     pygame.display.set_caption("Algorithm Visualiser")
 
     # Initialise data values
-    values = generate_initial_values(30)
+    values = generate_initial_values(settings.num_values)
 
     # Initialise algorithm
     # algorithm = BubbleSort(values)

@@ -11,3 +11,4 @@ class Settings:
         self.bar_padding = 5
 
         self.frame_rate = 60
+        self.num_values = 100
