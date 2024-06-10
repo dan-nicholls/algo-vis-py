@@ -46,7 +46,7 @@ def main():
                     running = False
                 elif event.key == pygame.K_r:
                     is_paused = True
-                    values = generate_initial_values(30)
+                    values = generate_initial_values(settings.num_values)
                     algorithm.reset(values)
                     step_count = 0
                     setup_screen(screen, settings)
@@ -60,16 +60,7 @@ def main():
                 algorithm.step()
                 step_count += 1
 
-        highlight_indexes = {
-            # [algorithm.j, algorithm.j + 1]
-            # if algorithm.j < algorithm.n - 1 - algorithm.i
-            # else []
-            algorithm.j: "red",
-            algorithm.i: "orange",
-            **(
-                {algorithm.min_index: "blue"} if hasattr(algorithm, "min_index") else {}
-            ),
-        }
+        highlight_indexes = algorithm.get_highlighted_indexes()
         draw_bars(screen, algorithm.data, settings, highlight_indexes)
         draw_step_count(screen, step_count, settings)
         pygame.display.flip()

@@ -30,3 +30,6 @@ class BubbleSort(Algorithm):
 
     def is_sorted(self):
         return self.sorted
+
+    def get_highlighted_indexes(self):
+        return {self.j: "red", self.i: "orange"}

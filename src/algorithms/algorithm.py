@@ -26,3 +26,7 @@ class Algorithm(ABC):
         self.data = data
         self.current_step = 0
         self.initialise()
+
+    @abstractmethod
+    def get_highlighted_indexes(self):
+        pass
