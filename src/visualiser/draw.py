@@ -2,21 +2,21 @@ import pygame
 
 
 def setup_screen(screen, settings):
-    screen.fill("white")
+    screen.fill(settings.color_bg)
     draw_static_elements(screen, settings)
 
 
 def draw_static_elements(screen, settings):
     """Draw static UI elements."""
     font = pygame.font.SysFont(settings.font_family, 36)
-    text = font.render("Algorithm Visualiser", True, "black")
+    text = font.render("Algorithm Visualiser", True, settings.color_text)
     text_rect = text.get_rect()
     text_rect.center = (settings.screen_width // 2, 30)
     screen.blit(text, text_rect)
 
 
 def draw_bars(screen, data, settings, highlight_indexes=None):
-    screen.fill("white")
+    screen.fill(settings.color_bg)
 
     bar_padding = settings.bar_padding
     bar_width = (settings.screen_width - (len(data) + 1) * bar_padding) / len(data)
@@ -31,7 +31,7 @@ def draw_bars(screen, data, settings, highlight_indexes=None):
         y = settings.screen_height - (value * scale_factor)
         height = value * scale_factor
 
-        color = highlight_indexes.get(i, settings.bar_color)
+        color = highlight_indexes.get(i, settings.color_bar)
         pygame.draw.rect(screen, color, (x, y, bar_width, height))
 
     draw_static_elements(screen, settings)
@@ -39,7 +39,7 @@ def draw_bars(screen, data, settings, highlight_indexes=None):
 
 def draw_step_count(screen, step_count, settings):
     font = pygame.font.SysFont(settings.font_family, 24)
-    text = font.render(f"Steps: {step_count}", True, "black")
+    text = font.render(f"Steps: {step_count}", True, settings.color_text)
     text_rect = text.get_rect()
     text_rect.topleft = (10, 10)
     screen.blit(text, text_rect)

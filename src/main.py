@@ -26,9 +26,9 @@ def main():
     values = generate_initial_values(settings.num_values)
 
     # Initialise algorithm
-    # algorithm = BubbleSort(values)
-    # algorithm = SelectionSort(values)
-    algorithm = InsertionSort(values)
+    # algorithm = BubbleSort(values, settings)
+    # algorithm = SelectionSort(values, settings)
+    algorithm = InsertionSort(values, settings)
     algorithm.initialise()
 
     setup_screen(screen, settings)

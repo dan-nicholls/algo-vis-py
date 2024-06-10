@@ -2,8 +2,8 @@ from .algorithm import Algorithm
 
 
 class InsertionSort(Algorithm):
-    def __init__(self, data):
-        super().__init__(data)
+    def __init__(self, data, settings):
+        super().__init__(data, settings)
         self.n = len(self.data)
         self.sorted = False
 
@@ -36,4 +36,7 @@ class InsertionSort(Algorithm):
         return self.sorted
 
     def get_highlighted_indexes(self):
-        return {self.i: "orange", self.j: "red"}
+        return {
+            self.j: self.settings.color_bar_highlight_1,
+            self.i: self.settings.color_bar_highlight_2,
+        }

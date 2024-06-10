@@ -2,8 +2,8 @@ from .algorithm import Algorithm
 
 
 class SelectionSort(Algorithm):
-    def __init__(self, data):
-        super().__init__(data)
+    def __init__(self, data, settings):
+        super().__init__(data, settings)
         self.n = len(self.data)
         self.sorted = False
 
@@ -36,4 +36,8 @@ class SelectionSort(Algorithm):
         return self.sorted
 
     def get_highlighted_indexes(self):
-        return {self.i: "orange", self.j: "red", self.min_index: "blue"}
+        return {
+            self.i: self.settings.color_bar_highlight_1,
+            self.j: self.settings.color_bar_highlight_2,
+            self.min_index: self.settings.color_bar_highlight_3,
+        }

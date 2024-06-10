@@ -2,9 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class Algorithm(ABC):
-    def __init__(self, data):
+    def __init__(self, data, settings):
         self.data = data
         self.current_step = 0
+        self.settings = settings
 
     @abstractmethod
     def initialise(self):
